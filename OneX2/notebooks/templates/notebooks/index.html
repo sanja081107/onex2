@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>brands</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+    {% if home %}
+        <a href="{% url 'brands' %}">Ноутбуки по брендам</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'notebooks' %}">Группы ноутбуков по размерам</a>
+    {% endif %}
+
+    {% if brands %}
+        {% for el in brands %}
+            {{ el.title }} {{ el.count }}<br>
+        {% endfor %}
+    {% endif %}
+
+    {% if notebooks %}
+        <div class="row container w-50">
+            <div class="col-sm">
+                width_n <br>
+                {% for el in notebooks %}
+                    {{ el.width }}<br>
+                {% endfor %}
+            </div>
+
+            <div class="col-sm">
+                depth_n <br>
+                {% for el in notebooks %}
+                    {{ el.depth }}<br>
+                {% endfor %}
+            </div>
+
+            <div class="col-sm">
+                height_n <br>
+                {% for el in notebooks %}
+                    {{ el.height }}<br>
+                {% endfor %}
+            </div>
+
+            <div class="col-sm">
+                count_n <br>
+                {% for el in notebooks %}
+                    {{ el.count_n }}<br>
+                {% endfor %}
+            </div>
+
+        </div>
+    {% endif %}
+</body>
+</html>
