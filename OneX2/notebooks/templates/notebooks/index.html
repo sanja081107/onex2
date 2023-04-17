@@ -13,32 +13,43 @@
         <a href="{% url 'notebooks' %}">Группы ноутбуков по размерам</a>
     {% endif %}
 
+
     {% if brands %}
         {% for el in brands %}
             {{ el.title }} {{ el.count }}<br>
         {% endfor %}
     {% endif %}
 
+
     {% if notebooks %}
         <div class="row container w-50">
+
+            <div class="col-sm">
+                <br><ol>
+                {% for el in notebooks %}
+                    <li></li>
+                {% endfor %}
+                </ol>
+            </div>
+
             <div class="col-sm">
                 width_n <br>
                 {% for el in notebooks %}
-                    {{ el.width }}<br>
+                    {{ el.width_n }}<br>
                 {% endfor %}
             </div>
 
             <div class="col-sm">
                 depth_n <br>
                 {% for el in notebooks %}
-                    {{ el.depth }}<br>
+                    {{ el.depth_n }}<br>
                 {% endfor %}
             </div>
 
             <div class="col-sm">
                 height_n <br>
                 {% for el in notebooks %}
-                    {{ el.height }}<br>
+                    {{ el.height_n }}<br>
                 {% endfor %}
             </div>
 
@@ -49,6 +60,12 @@
                 {% endfor %}
             </div>
 
+<!--            <div class="col-sm">-->
+<!--                brand <br>-->
+<!--                {% for el in notebooks %}-->
+<!--                    {{ el.brand_id }}<br>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
         </div>
     {% endif %}
 </body>
